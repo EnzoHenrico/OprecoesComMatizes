@@ -3,6 +3,18 @@ float[,] matriz1 = new float[tamanhoLinha, tamanhoColuna];
 float[,] matriz2 = new float[tamanhoLinha, tamanhoColuna];
 float[,] matrizResultante = new float[tamanhoLinha, tamanhoColuna];
 
+void imprimirMatriz(float[,] matriz, string nomeDaOperacao = "")
+{
+    Console.WriteLine($"{nomeDaOperacao}\n");
+    for (int linha = 0; linha < tamanhoLinha; linha++)
+    {
+        for (int coluna = 0; coluna < tamanhoColuna; coluna++)
+        {
+            Console.Write($"{matriz[linha, coluna]:00} ");
+        }
+    }
+}
+
 for (int linha = 0; linha < tamanhoLinha; linha++)
 {
     for (int coluna = 0; coluna < tamanhoColuna; coluna++)
@@ -12,127 +24,44 @@ for (int linha = 0; linha < tamanhoLinha; linha++)
     }
 }
 
-Console.WriteLine("\nSoma das matrizes: \n");
+// Matrizes originais
+imprimirMatriz(matriz1, "Valores originais:");
+imprimirMatriz(matriz2);
+
+// Soma
 for (int linha = 0; linha < tamanhoLinha; linha++)
 {
     for (int coluna = 0; coluna < tamanhoColuna; coluna++)
     {
         matrizResultante[linha, coluna] = matriz1[linha, coluna] + matriz2[linha, coluna];
-        Console.Write($"{matriz1[linha, coluna]:00} ");
     }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  +  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matriz2[linha, coluna]:00} ");
-    }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  =  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matrizResultante[linha, coluna]:00} ");
-    }
-
     Console.WriteLine();
 }
+imprimirMatriz(matrizResultante, "Soma das matrizes: ");
 
-Console.WriteLine("\nSubtração das matrizes: \n");
+// Subtração
 for (int linha = 0; linha < tamanhoLinha; linha++)
 {
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
     {
-        matrizResultante[linha, coluna] = matriz1[linha, coluna] - matriz2[linha, coluna];
-        Console.Write($"{matriz1[linha, coluna]:00} ");
+        for (int coluna = 0; coluna < tamanhoColuna; coluna++)
+            matrizResultante[linha, coluna] = matriz1[linha, coluna] - matriz2[linha, coluna];
     }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  -  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matriz2[linha, coluna]:00} ");
-    }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  =  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matrizResultante[linha, coluna]:00} ");
-    }
-
     Console.WriteLine();
 }
+imprimirMatriz(matrizResultante, "Subtração das matrizes: ");
 
-Console.WriteLine("\nMultiplicação das matrizes: \n");
+// Multiplicação
 for (int linha = 0; linha < tamanhoLinha; linha++)
 {
     for (int coluna = 0; coluna < tamanhoColuna; coluna++)
     {
         matrizResultante[linha, coluna] = matriz1[linha, coluna] * matriz2[linha, coluna];
-        Console.Write($"{matriz1[linha, coluna]:00} ");
     }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  *  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matriz2[linha, coluna]:00} ");
-    }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  =  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matrizResultante[linha, coluna]:00} ");
-    }
-
     Console.WriteLine();
 }
+imprimirMatriz(matrizResultante, "Multiplicação das matrizes: ");
 
-Console.WriteLine("\nDivisão das matrizes: \n");
+// Divisão
 for (int linha = 0; linha < tamanhoLinha; linha++)
 {
     for (int coluna = 0; coluna < tamanhoColuna; coluna++)
@@ -145,36 +74,11 @@ for (int linha = 0; linha < tamanhoLinha; linha++)
         {
             matrizResultante[linha, coluna] = float.NaN;
         }
-        Console.Write($"{matriz1[linha, coluna]:00} ");
     }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  /  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matriz2[linha, coluna]:00} ");
-    }
-
-    if (linha == tamanhoLinha / 2)
-    {
-        Console.Write("  =  ");
-    }
-    else
-    {
-        Console.Write("     ");
-    }
-
-    for (int coluna = 0; coluna < tamanhoColuna; coluna++)
-    {
-        Console.Write($"{matrizResultante[linha, coluna]:00.0} ");
-    }
-
     Console.WriteLine();
 }
+imprimirMatriz(matrizResultante, "Divisão das matrizes: ");
+
+// Interação final
+Console.WriteLine();
+Console.ReadLine();
