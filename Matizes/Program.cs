@@ -1,14 +1,14 @@
 ﻿int tamanhoLinha = 3, tamanhoColuna = 3;
-int[,] matriz1 = new int[tamanhoLinha, tamanhoColuna];
-int[,] matriz2 = new int[tamanhoLinha, tamanhoColuna];
+float[,] matriz1 = new float[tamanhoLinha, tamanhoColuna];
+float[,] matriz2 = new float[tamanhoLinha, tamanhoColuna];
 float[,] matrizResultante = new float[tamanhoLinha, tamanhoColuna];
 
 for (int linha = 0; linha < tamanhoLinha; linha++)
 {
     for (int coluna = 0; coluna < tamanhoColuna; coluna++)
     {
-        matriz1[linha, coluna] = new Random().Next(1, 11);
-        matriz2[linha, coluna] = new Random().Next(1, 11);
+        matriz1[linha, coluna] = new Random().Next(0, 11);
+        matriz2[linha, coluna] = new Random().Next(0, 11);
     }
 }
 
@@ -137,7 +137,14 @@ for (int linha = 0; linha < tamanhoLinha; linha++)
 {
     for (int coluna = 0; coluna < tamanhoColuna; coluna++)
     {
-        matrizResultante[linha, coluna] = matriz1[linha, coluna] / matriz2[linha, coluna];
+        if (matriz2[linha, coluna] != 0)
+        {
+            matrizResultante[linha, coluna] = matriz1[linha, coluna] / matriz2[linha, coluna];
+        }
+        else
+        {
+            matrizResultante[linha, coluna] = float.NaN;
+        }
         Console.Write($"{matriz1[linha, coluna]:00} ");
     }
 
