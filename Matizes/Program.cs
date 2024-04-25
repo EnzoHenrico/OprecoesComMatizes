@@ -96,7 +96,8 @@ do
     Console.WriteLine("2 - Subtração");
     Console.WriteLine("3 - Multiplicação");
     Console.WriteLine("4 - Divisão");
-    Console.WriteLine("Ou:\n5 - Gerar novos valores");
+    Console.WriteLine("Ou:");
+    Console.WriteLine("5 - Gerar novos valores");
     opcaoDoUsuario =  int.Parse(Console.ReadLine());
     Console.WriteLine();
 
@@ -115,6 +116,12 @@ do
             imprimirMatriz(calcularMatrizes(matriz1, matriz2, "divisao"), "Divisão: ");
             break;
         case 5:
+            Console.Write("\nManter mesmos tamanhos? (s)Sim / (n)Não : ");
+            char input = char.Parse(Console.ReadLine());
+            if (input == 'n' || input == 'N')
+            {
+                solicitarTamanhoDasMatrizes();
+            }
             matriz1 = gerarMatrizAleatoria(tamanhoLinha, tamanhoColuna);
             matriz2 = gerarMatrizAleatoria(tamanhoLinha, tamanhoColuna);
             imprimirMatriz(matriz1, "Novos valores:");
