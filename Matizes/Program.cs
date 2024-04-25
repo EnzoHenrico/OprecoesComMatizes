@@ -91,7 +91,7 @@ imprimirMatriz(matriz2);
 
 do
 {
-    Console.WriteLine("Selecione a operação desejada: \n");
+    Console.WriteLine("\nSelecione a operação desejada: \n");
     Console.WriteLine("1 - Soma");
     Console.WriteLine("2 - Subtração");
     Console.WriteLine("3 - Multiplicação");
@@ -125,11 +125,13 @@ do
             break;
     }
     
-    Console.Write("\nDeseja executar novamente? (s)Sim / (n)Não : ");
-    char input = char.Parse(Console.ReadLine());
-    if (input == 's' || input == 'S')
+    if (opcaoDoUsuario != 5)
     {
-        opcaoDoUsuario = 0;
+        Console.Write("\nVoltar ao menu de opções? (s)Sim / (n)Não : ");
+        char input = char.Parse(Console.ReadLine());
+        if (input == 's' || input == 'S')
+        {
+            opcaoDoUsuario = 0;
+        }
     }
-
 } while (opcaoDoUsuario > 4 || opcaoDoUsuario < 1);
